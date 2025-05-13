@@ -1,0 +1,20 @@
+services:
+
+  site-httpd:
+    image: site-v${VERSION:-0}-httpd
+    build:
+      context: .
+      dockerfile: Dockerfile.httpd
+    ports:
+    - 8001:80
+
+
+  site-nginx:
+    image: site-v${VERSION:-0}-nginx
+    build:
+      context: .
+      dockerfile: Dockerfile.nginx
+    ports:
+    - 8002:80
+
+

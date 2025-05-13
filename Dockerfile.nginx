@@ -1,0 +1,2 @@
+FROM nginx:1.27-alpine
+COPY --chown=nginx:nginx  --chmod==750  public/  /usr/share/nginx/html/
