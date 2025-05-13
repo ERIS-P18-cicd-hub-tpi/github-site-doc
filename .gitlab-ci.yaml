@@ -1,0 +1,27 @@
+stages:
+- build:
+- deploy:
+
+
+variables:
+   WEBSERVER: httpd
+   PROJECT_IMAGE: ${CI_REGISTRY_IMAGE}:${WEBSERVER}
+
+#image: docker:latest
+
+Construction Image:
+  stage: build
+  script:
+  #construction
+  - docker image build -t ${PROJECT_IMAGE} -f  Dockerfile.${WEBSERVER} ${PWD}
+  #Login registry
+  - docker login -u ${CI_REGISTRY_USER} -p ${CI_REGISTRY_PASSWORD} ${CI_REGISTRY}
+  # Push image
+  - docker image push ${PROJECT_IMAGE}
+  # Clean local image repo
+  - docker image rm ${PROJECT_IMAGE}
+
+Deploiement:
+  stge: deploy
+  script:
+  - echo "Success my bro "
