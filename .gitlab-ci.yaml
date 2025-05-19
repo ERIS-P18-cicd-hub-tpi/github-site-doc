@@ -2,17 +2,16 @@ stages:
 - build
 - deploy
 
-image: docker:latest
-services:
-- docker:latest
-
-
 variables:
   WEBSERVER: httpd
   PROJECT_IMAGE: ${CI_REGISTRY_IMAGE}:${WEBSERVER}
 
 
 Construction Image:
+
+  image: docker:latest
+  services:
+  - docker:latest
   stage: build
   script:
   #construction
