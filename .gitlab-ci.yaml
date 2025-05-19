@@ -26,5 +26,8 @@ Construction Image:
 
 Deploiement:
   stage: deploy
+  tags:
+  - deploiement
+
   script:
   - echo "Success my bro "
