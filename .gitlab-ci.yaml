@@ -4,8 +4,8 @@ stages:
 
 
 variables:
-   WEBSERVER: httpd
-   PROJECT_IMAGE: ${CI_REGISTRY_IMAGE}:${WEBSERVER}
+  WEBSERVER: httpd
+  PROJECT_IMAGE: ${CI_REGISTRY_IMAGE}:${WEBSERVER}
 
 image: docker:latest
 
@@ -22,6 +22,6 @@ Construction Image:
   - docker image rm ${PROJECT_IMAGE}
 
 Deploiement:
-  stge: deploy
+  stage: deploy
   script:
   - echo "Success my bro "
