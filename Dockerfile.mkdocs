@@ -1,0 +1,16 @@
+
+#### Build en deux étapes
+## Première étape : Compiler la documentation dans un dossier
+FROM registry.actilis.net/docker-images/mkdocs:latest AS constructeur
+COPY mkdocs.yml /docs
+COPY src        /docs/src
+#COPY includes   /docs/includes
+RUN mkdocs build
+
+
+
+
+#Seconde étape, intégrer le site statiue dans un appache de base
+
+FROM httpd:2.4-alpine
+COPY --from=constructeur --chown=www-data:www-data  --chmod=750  /docs/site  /usr/local/apache2/htdocs/
