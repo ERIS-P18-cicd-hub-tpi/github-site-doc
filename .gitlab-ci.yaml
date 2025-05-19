@@ -23,6 +23,12 @@ Construction Image:
   # Clean local image repo
   - docker image rm ${PROJECT_IMAGE}
 
+  rules:
+  - changes:
+    - Dockerfile.*
+    - public/*
+    - .gitlab-ci.yaml
+
 Deploiement:
   stage: deploy
   tags:
@@ -35,3 +41,4 @@ Deploiement:
   - echo "Success my bro "
 
 
+  when: manual
