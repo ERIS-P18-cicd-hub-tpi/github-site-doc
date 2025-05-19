@@ -30,4 +30,5 @@ Deploiement:
   - deploiement
 
   script:
+  - docker compose -f compose-prod.yml up -d
   - echo "Success my bro "
