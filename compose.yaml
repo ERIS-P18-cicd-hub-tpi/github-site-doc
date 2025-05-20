@@ -1,5 +1,14 @@
 services:
 
+  site-mkdocs:
+    image: site-v${VERSION:-0}-mkdocs
+    build:
+      context: .
+      dockerfile: Dockerfile.mkdocs
+    ports:
+    - 8000:80
+
+
   site-httpd:
     image: site-v${VERSION:-0}-httpd
     build:

@@ -3,7 +3,7 @@ stages:
 - deploy
 
 variables:
-  WEBSERVER: httpd
+  WEBSERVER: "mkdocs"
   PROJECT_IMAGE: ${CI_REGISTRY_IMAGE}:${WEBSERVER}
 
 
@@ -30,9 +30,9 @@ Construction Image:
     - .gitlab-ci.yaml
 
 Deploiement:
-  stage: deploy
-  tags:
-  - deploiement
+  # stage: deploy
+  #tags:
+  #- deploiement
 
   script:
   - docker login -u ${CI_DEPLOY_USER} -p ${CI_DEPLOY_PASSWORD} ${CI_REGISTRY}
