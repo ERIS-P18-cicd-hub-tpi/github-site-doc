@@ -6,9 +6,9 @@ on:
       - 'Dockerfile.*'
       - 'public/**'
       - '.github/workflows/**'
-      - '.gitlab-ci.yml'
+     # - '.gitlab-ci.yml'
     branches:
-      - main
+      - Main
       - dev
 
 env:
